@@ -10,9 +10,9 @@ def hex2bin(hex)
 end
 
 i = 0
-digest = ''
+digest = Digest::SHA256.hexdigest prefix + i.to_s()
 until hex2bin(digest).start_with?(zeros) do
-  digest = Digest::SHA256.hexdigest prefix + i.to_s()
   i += 1
+  digest = Digest::SHA256.hexdigest prefix + i.to_s()
 end
 p i
